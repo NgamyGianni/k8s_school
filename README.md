@@ -1,1 +1,2 @@
-# k8s_school
+# Déploiement d'un couple (serveur - base de données) sur kubernetes
+
