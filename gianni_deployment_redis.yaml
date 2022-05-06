@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gianniredis
+  labels:
+    app: gianniredis
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: gianniredis
+  template:
+    metadata:
+      labels:
+        app: gianniredis
+    spec:
+      containers:
+        - name: gianniredis
+          image: redis
+          ports:
+            - containerPort: 6379

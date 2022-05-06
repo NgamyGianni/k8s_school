@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gianninoderedis
+  labels:
+    app: gianninoderedis
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: gianninoderedis
+  template:
+    metadata:
+      labels:
+        app: gianninoderedis
+    spec:
+      containers:
+        - name: gianninoderedis
+          image: cloud.canister.io:5000/arhturescriou/node-redis
+          ports:
+            - containerPort: 3000
+          env:
+            - name: PORT
+              value: "3000"
+            - name: REDIS_URL
+              value: "redis://10.2.4.4"
+
+      imagePullSecrets:
+        - name: regcred

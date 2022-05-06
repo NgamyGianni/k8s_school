@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: gianniredis
+spec:
+  selector:
+    app: gianniredis
+  ports:
+    - protocol: TCP
+      port: 6379
+      targetPort: 6379
